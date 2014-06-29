@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), "..", "lib")
+require 'optparse'
+require 'wizardfight/tupleserver'
+
+options = {
+  :uri => nil,
+}
+
+parser = OptionParser.new do |opts|
+  opts.on("-u URI") { |u| options[:uri] = u }
+end
+
+parser.parse!
+
+WizardFight::TupleServer.new($uri).go!

@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), "..", "lib")
+require 'optparse'
+require 'wizardfight/pusher'
+
+options = {
+  :name => nil,
+  :uri => nil,
+}
+
+parser = OptionParser.new do |opts|
+  opts.on("-n NAME") do { |n| options[:name] = n }
+  opts.on("-u URI") do { |u| options[:uri] = u }
+end
+
+parser.parse!
+
+if not options[:name]
+  $stderr.puts("Please provide a name")
+  exit 1
+end
+
+WizardFight::Pusher.new(options[:uri], options[:name]).go!
