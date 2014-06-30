@@ -9,8 +9,8 @@ options = {
 }
 
 parser = OptionParser.new do |opts|
-  opts.on("-n NAME") do { |n| options[:name] = n }
-  opts.on("-u URI") do { |u| options[:uri] = u }
+  opts.on("-n NAME") { |n| options[:name] = n }
+  opts.on("-u URI") { |u| options[:uri] = u }
 end
 
 parser.parse!
