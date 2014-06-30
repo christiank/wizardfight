@@ -13,4 +13,4 @@ end
 
 parser.parse!
 
-WizardFight::TupleServer.new($uri).go!
+WizardFight::TupleServer.new(options[:uri]).go!
